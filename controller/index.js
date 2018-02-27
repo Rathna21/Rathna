@@ -11,8 +11,8 @@ const mongoose = require('mongoose');
 
 let app = express();
 
-// mongoose.connect('mongodb://localhost/UserData');
-mongoose.Promise = global.Promise;
+/*mongoose.connect('mongodb://localhost/UserData');
+mongoose.Promise = global.Promise;*/
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
