@@ -29,4 +29,4 @@ app.get('/*' , (req,res) => {
     res.sendFile(path.join(__dirname , './index.html'));
 });
 
-app.listen(process.env.port || 2000, () => console.log("Running on localhost 2000"));
+app.listen(process.env.PORT || 2000, () => console.log("Running on localhost 2000"));

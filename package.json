@@ -6,6 +6,7 @@
   "scripts": {
     "controller": " nodemon --watch controller --exec babel-node -- controller/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "author": "",
   "license": "ISC",
