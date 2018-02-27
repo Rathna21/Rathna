@@ -16,7 +16,12 @@ class LoginForm extends React.Component {
 
     onSubmit(e){
         e.preventDefault();
-        console.log(this.state);
+        new UserData ({
+            email : this.state.email,
+            password : this.state.password
+        }).fetch().then((userData) => {
+          console.log('User retrieved' + userData);
+        });
     }
     render(){
         return (

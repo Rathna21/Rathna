@@ -21,7 +21,13 @@ class SignupForm extends React.Component {
 
     onSubmit(e){
         e.preventDefault();
-     console.log(this.state);
+     new UserData ({
+          username : this.state.username,
+          email : this.state.email,
+          password : this.state.password
+     }).save().then((userData)=> {
+         console.log('New User Created : ' + userData);
+     });
     }
 
     render() {
