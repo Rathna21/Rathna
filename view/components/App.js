@@ -6,7 +6,7 @@ import Navigation from './Navigation';
     render(){
         return (
             <div className = "container">
-                <h1> Hello Ratzz!!!</h1>
+                <h3> Hello Ratzz!!!</h3>
             <Navigation />
                 {this.props.children}
             </div>

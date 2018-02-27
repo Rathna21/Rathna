@@ -1,4 +1,6 @@
 import React from 'react';
+//const UserData = require('../model/userData');
+//import UserData from '../../model/userData';
 
 class LoginForm extends React.Component {
     constructor(props){
