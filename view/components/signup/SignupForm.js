@@ -21,13 +21,13 @@ class SignupForm extends React.Component {
 
     onSubmit(e){
         e.preventDefault();
-     new UserData ({
+     /*new UserData ({
           username : this.state.username,
           email : this.state.email,
           password : this.state.password
      }).save().then((userData)=> {
          console.log('New User Created : ' + userData);
-     });
+     });*/
     }
 
     render() {

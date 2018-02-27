@@ -6,7 +6,8 @@ router.get('/signup',function(req,res,next){
     /*UserData.find({email : req.query.email , password : req.query.password}).then(function(userData){
         res.send(userData);
     });*/
-    res.send("success");
+
+    res.send("scucess");
 });
 
 router.post('/signup',function(req,res,next){
