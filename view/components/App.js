@@ -1,14 +1,20 @@
 import React from 'react';
 import Navigation from './Navigation';
+import intropage from '../../intropage.css';
 
 
  export default class App extends React.Component  {
     render(){
         return (
-            <div className = "container">
-                <h3> Hello Ratzz!!!</h3>
-            <Navigation />
+
+            <div>
+                <h1 align="center" > Welcome to our application Signal Strength!</h1>
+
+            <div className = "container contain">
+
                 {this.props.children}
+
+            </div>
             </div>
         );
     }

@@ -1,6 +1,9 @@
 import React from 'react';
 //const UserData = require('../model/userData');
 //import UserData from '../../model/userData';
+const http = require('http');
+import { browserHistory } from 'react-router';
+
 
 class LoginForm extends React.Component {
     constructor(props){
@@ -18,13 +21,21 @@ class LoginForm extends React.Component {
 
     onSubmit(e){
         e.preventDefault();
-        new UserData ({
-            email : this.state.email,
-            password : this.state.password
-        }).fetch().then((userData) => {
-          console.log('User retrieved' + userData);
-        });
+        fetch("/api/signup?email="+ this.state.email +"&password=" + this.state.password).then(function (data) {
+
+            console.log(data.json());
+            });
     }
+
+
+    handleClick(e){
+        e.preventDefault();
+
+        browserHistory.push('/charts');
+    }
+
+
+
     render(){
         return (
             <form onSubmit={this.onSubmit}>
@@ -47,10 +58,11 @@ class LoginForm extends React.Component {
                 </div>
 
                 <div className= "form-group">
-                    <button className= "btn btn-primary btn-lg">Login</button>
+                    <button className= "btn btn-primary btn-lg" onClick={this.handleClick}>Login</button>
                 </div>
 
-
+                 <h4>Are you a new user?
+                           <a href = '/signup'> Register</a></h4>
 
 
 

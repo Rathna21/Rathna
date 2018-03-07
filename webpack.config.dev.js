@@ -19,6 +19,10 @@ export default {
                 test : /\.js$/,
                 include : path.join(__dirname , 'view'),
                 loaders: [ 'babel-loader'],
+            },
+            {
+                test : /\.css$/,
+                loaders : ['style-loader' , 'css-loader']
             }
         ]
     },

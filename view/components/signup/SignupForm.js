@@ -1,4 +1,7 @@
 import React from 'react';
+const http = require('http');
+import { browserHistory} from 'react-router';
+import axios from 'axios';
 
 
 class SignupForm extends React.Component {
@@ -12,27 +15,41 @@ class SignupForm extends React.Component {
         }
 
         this.onChange =this.onChange.bind(this);
-        this.onSubmit =this.onSubmit.bind(this);
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     onChange(e){
         this.setState({ [e.target.name] : e.target.value });
     }
 
-    onSubmit(e){
+
+
+
+    handleClick(e) {
         e.preventDefault();
-     /*new UserData ({
-          username : this.state.username,
-          email : this.state.email,
-          password : this.state.password
-     }).save().then((userData)=> {
-         console.log('New User Created : ' + userData);
-     });*/
+
+
+        axios.post('http://localhost:2000/api/signup', {
+            username: this.state.username,
+            email : this.state.email,
+            password : this.state.password
+        })
+            .then(response => {
+                console.log(response, 'Signature added!');
+            })
+            .catch(err => {
+                console.log(err, 'Signature not added, try again');
+            });
+
+        browserHistory.push('/login');
     }
+
+
 
     render() {
         return (
-           <form onSubmit={this.onSubmit}>
+           <form >
                 <h1>Join US!!</h1>
 
                <div className= "form-group">
@@ -70,7 +87,7 @@ class SignupForm extends React.Component {
 
 
                <div className= "form-group">
-                   <button className= "btn btn-primary btn-lg">Sign Up</button>
+                   <button className= "btn btn-primary btn-lg" onClick={this.handleClick}>Sign Up</button>
                </div>
 
 

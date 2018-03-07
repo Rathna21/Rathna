@@ -8,14 +8,19 @@ import webpackConfig from '../webpack.config.dev';
 
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+//import users from './routes/users';
 
 let app = express();
+
+
 
 // mongoose.connect('mongodb://127.0.0.1:27017/UserData');
 mongoose.connect('mongodb://root:root@ds235328.mlab.com:35328/networkdata');
 mongoose.Promise = global.Promise;
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
+
+//app.use('/api/users', users);
 
 
 
