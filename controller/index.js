@@ -12,8 +12,6 @@ const mongoose = require('mongoose');
 
 let app = express();
 
-
-
 // mongoose.connect('mongodb://127.0.0.1:27017/UserData');
 mongoose.connect('mongodb://root:root@ds235328.mlab.com:35328/networkdata');
 mongoose.Promise = global.Promise;
@@ -35,4 +33,4 @@ app.get('/*' , (req,res) => {
     res.sendFile(path.join(__dirname , './index.html'));
 });
 
-app.listen(process.env.port || 2000, () => console.log("Running on localhost 2000"));
+app.listen(process.env.port || 3000, () => console.log("Running on localhost 3000"));

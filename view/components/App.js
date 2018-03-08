@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from './Navigation';
-import intropage from '../../intropage.css';
 
 
  export default class App extends React.Component  {

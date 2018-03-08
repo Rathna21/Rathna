@@ -30,19 +30,18 @@ class SignupForm extends React.Component {
         e.preventDefault();
 
 
-        axios.post('http://localhost:2000/api/signup', {
+        axios.post('http://localhost:3000/api/signup', {
             username: this.state.username,
             email : this.state.email,
             password : this.state.password
         })
             .then(response => {
-                console.log(response, 'Signature added!');
+                browserHistory.push('/login');
             })
             .catch(err => {
-                console.log(err, 'Signature not added, try again');
+                alert('Error in adding data. Please try again later');
             });
 
-        browserHistory.push('/login');
     }
 
 

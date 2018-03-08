@@ -1,8 +1,7 @@
 import React from 'react';
-//const UserData = require('../model/userData');
-//import UserData from '../../model/userData';
 const http = require('http');
 import { browserHistory } from 'react-router';
+import axios from 'axios';
 
 
 class LoginForm extends React.Component {
@@ -13,32 +12,36 @@ class LoginForm extends React.Component {
             password : ''
         }
         this.onChange =this.onChange.bind(this);
-        this.onSubmit =this.onSubmit.bind(this);
+        this.handleClick =this.handleClick.bind(this);
     }
     onChange(e){
         this.setState({ [e.target.name] : e.target.value });
     }
 
-    onSubmit(e){
-        e.preventDefault();
-        fetch("/api/signup?email="+ this.state.email +"&password=" + this.state.password).then(function (data) {
-
-            console.log(data.json());
-            });
-    }
-
 
     handleClick(e){
+
         e.preventDefault();
 
-        browserHistory.push('/charts');
+
+
+        axios.get("http://localhost:3000/api/signup?email="+ this.state.email +"&password=" + this.state.password).then(response => {
+            console.log(response);
+            if(response.data.length == 1)
+                browserHistory.push('/charts');
+            else
+                alert('Invalid email or password');
+           }).catch(err => {
+                alert('OOPS! Network error. Please try again later');
+           });
+
     }
 
 
 
     render(){
         return (
-            <form onSubmit={this.onSubmit}>
+            <form>
                 <h1>Login</h1>
 
                 <div className= "form-group">
@@ -46,7 +49,7 @@ class LoginForm extends React.Component {
                     <input value={this.state.email} onChange={this.onChange }
                            type="text"
                            name= "email"
-                           className = "form-control" />
+                           className = "form-control"/>
                 </div>
 
                 <div className= "form-group">
