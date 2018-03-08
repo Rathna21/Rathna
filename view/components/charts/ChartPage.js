@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../Navigation';
 
 
+
 class ChartPage extends React.Component {
     render(){
         return(

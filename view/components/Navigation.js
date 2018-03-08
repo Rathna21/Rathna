@@ -6,7 +6,7 @@ export default () => {
     <nav className= "navbar navbar-default">
         <div className= "container-fluid">
             <div className= "navbar-header">
-                <Link to= "/" className ="navbar-brand">Home</Link>
+                <Link to= "/home" className ="navbar-brand">Home</Link>
 
 
 
@@ -14,9 +14,9 @@ export default () => {
 
             <div className= "collapse navbar-collapse">
                 <ul className= "nav navbar-nav navbar-right">
-                    <li><Link to = "/signup">Profile</Link> </li>
-                    <li><Link to = "/login">Charts</Link> </li>
-                    <li><Link to = "/charts">Logout</Link> </li>
+                    <li><Link to = "/profile">Profile</Link> </li>
+                    <li><Link to = "/charts">Charts</Link> </li>
+                    <li><Link to = "/login">Logout</Link> </li>
 
                 </ul>
             </div>
