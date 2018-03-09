@@ -1,4 +1,6 @@
 const express = require('express');
+const session = require('express-session');
+
 const router = express.Router();
 const UserData = require('../model/userData');
 const NetworkData = require('../model/networkData');
@@ -11,7 +13,6 @@ router.get('/signup',function(req,res,next){
 });
 
 router.get('/register', function(req, res, next) {
-    console.log('inside get');
     NetworkData.find({networkName : req.query.networkName}).then(function (data) {
         res.send(data);
 

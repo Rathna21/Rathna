@@ -3,7 +3,6 @@ const http = require('http');
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 
-
 class LoginForm extends React.Component {
     constructor(props){
         super(props);
@@ -23,17 +22,26 @@ class LoginForm extends React.Component {
 
         e.preventDefault();
 
+        if(this.state.email == '')
+            alert('enter email');
 
+        else if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)))
+            alert('enter valid email');
 
-        axios.get("http://localhost:3000/api/signup?email="+ this.state.email +"&password=" + this.state.password).then(response => {
-            console.log(response);
-            if(response.data.length == 1)
-                browserHistory.push('/home');
-            else
-                alert('Invalid email or password');
-           }).catch(err => {
+        else if (this.state.password == '')
+            alert('enter password');
+
+        else
+        {
+            axios.get("http://localhost:3000/api/signup?email="+ this.state.email +"&password=" + this.state.password).then(response => {
+                if(response.data.length == 1)
+                    browserHistory.push('/home');
+                else
+                    alert('Invalid email or password');
+            }).catch(err => {
                 alert('OOPS! Network error. Please try again later');
-           });
+            });
+        }
 
     }
 

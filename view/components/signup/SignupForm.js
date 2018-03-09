@@ -3,7 +3,6 @@ const http = require('http');
 import { browserHistory} from 'react-router';
 import axios from 'axios';
 
-
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
@@ -24,23 +23,39 @@ class SignupForm extends React.Component {
     }
 
 
-
-
     handleClick(e) {
         e.preventDefault();
 
+        if(this.state.username == '')
+            alert('enter valid username');
 
-        axios.post('http://localhost:3000/api/signup', {
-            username: this.state.username,
-            email : this.state.email,
-            password : this.state.password
-        })
-            .then(response => {
-                browserHistory.push('/login');
+        else if (this.state.email == '' )
+            alert('enter email');
+
+        else if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)))
+            alert('enter valid email');
+
+        else if (this.state.password == '' || this.state.confirmpassword == '')
+            alert('enter valid password');
+
+        else if (this.state.password != this.state.confirmpassword)
+            alert('password mismatch');
+
+        else {
+
+            axios.post('http://localhost:3000/api/signup', {
+                username: this.state.username,
+                email : this.state.email,
+                password : this.state.password
             })
-            .catch(err => {
-                alert('Error in adding data. Please try again later');
-            });
+                .then(response => {
+                    browserHistory.push('/login');
+                })
+                .catch(err => {
+                    alert('Error in adding data. Please try again later');
+                });
+
+        }
 
     }
 
@@ -95,6 +110,5 @@ class SignupForm extends React.Component {
         );
     }
 }
-
 
 export default SignupForm;
