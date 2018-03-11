@@ -1,21 +1,16 @@
 import React from 'react';
-import SignupForm from './SignupForm';
+import ForgotPassword from "./ForgotPassword";
 
-
-
-class SignupPage extends React.Component {
+class ForgotPage extends React.Component {
     render(){
-
         return(
             <div className= "row">
                 <div className= "col-md-4 col-md-offset-4">
-
-                <SignupForm  />
+                    <ForgotPassword  />
                 </div>
             </div>
-
         );
     }
 }
 
-export default SignupPage ;
+export default ForgotPage;

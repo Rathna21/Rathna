@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
     render(){
         return (
             <form>
-                <h1>Login</h1>
+                <h2>Login</h2>
 
                 <div className= "form-group">
                     <label className= "control-label">Email</label>
@@ -70,6 +70,8 @@ class LoginForm extends React.Component {
 
                 <div className= "form-group">
                     <button className= "btn btn-primary btn-lg" onClick={this.handleClick}>Login</button>
+
+                    <a href= '/forgotpassword'> Forgot Password?</a>
                 </div>
 
                  <h4>Are you a new user?

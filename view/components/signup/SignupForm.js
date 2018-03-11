@@ -46,7 +46,9 @@ class SignupForm extends React.Component {
             axios.post('http://localhost:3000/api/signup', {
                 username: this.state.username,
                 email : this.state.email,
-                password : this.state.password
+                password : this.state.password,
+                resetPasswordToken : '',
+                resetPasswordExpires : ''
             })
                 .then(response => {
                     browserHistory.push('/login');
@@ -64,7 +66,7 @@ class SignupForm extends React.Component {
     render() {
         return (
            <form >
-                <h1>Join US!!</h1>
+                <h2>Join US!!</h2>
 
                <div className= "form-group">
                    <label className= "control-label">Username</label>

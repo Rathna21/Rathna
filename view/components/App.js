@@ -7,9 +7,9 @@ import common from '../../common.css';
         return (
 
             <div>
-                <h1 align="center" > Welcome to our application Signal Strength!</h1>
+                <h1 align="center" > Welcome to the application Signal Strength!</h1>
 
-            <div className = "container contain">
+            <div className = "container ">
 
                 {this.props.children}
 
