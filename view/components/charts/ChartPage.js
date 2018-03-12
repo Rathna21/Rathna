@@ -1,17 +1,17 @@
 import React from 'react';
-import Navigation from '../Navigation';
+import ChartForm from './ChartForm';
 
+import Navigation from '../Navigation';
 
 
 class ChartPage extends React.Component {
     render(){
         return(
             <div className= "container">
+                <Navigation/>
 
-                   <Navigation />
-                   <h1>Chart Page</h1>
-                </div>
-
+                <ChartForm />
+            </div>
 
         );
     }

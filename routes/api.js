@@ -15,6 +15,13 @@ router.get('/signup',function(req,res,next){
 
 });
 
+router.get('/profile', function (req, res, next) {
+
+    UserData.find({email : req.query.email}).then(function (userData) {
+       res.send(userData);
+    });
+});
+
 router.get('/register', function(req, res, next) {
     NetworkData.find({networkName : req.query.networkName}).then(function (data) {
         res.send(data);

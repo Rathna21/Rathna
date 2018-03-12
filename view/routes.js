@@ -13,6 +13,7 @@ import ResetPassword from "./components/resetpassword/ResetPassword";
 import ForgotPage from "./components/forgotpassword/ForgotPage";
 import ResetPage from "./components/resetpassword/ResetPage";
 
+
 export default (
     <Route path ='/' component= {App}>
         <IndexRoute component = {Greetings} />
