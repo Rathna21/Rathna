@@ -19,17 +19,13 @@ export default class ProfileForm extends React.Component {
         userData = userData.map(function (data, index) {
 
             return(
-                <ul>
+                <div align="center" className= "col-md-4 col-md-offset-4 ">
 
-                    <li key={index}>
-                        <label >Username : </label>  {userData[index].username}
-                    </li>
+                    <label className="control-label profile">Username  </label>
+                    <input className="form-control prof" value={userData[index].username}/><br />
+                    <label className="control-label profile">   Email  </label>  <input className="form-control prof" value={userData[index].email}/>
 
-                    <li key= {index}>
-                        <label >Email : </label>  {userData[index].email}
-                    </li>
-
-                </ul>
+                </div>
 
             );
         });
@@ -37,11 +33,12 @@ export default class ProfileForm extends React.Component {
         return (
 
         <div id="container">
+            <h2 align="center">User Details</h2>
 
             <form>
 
-                <div className= "form-group">
-                    <button className= "btn btn-primary btn-lg" onClick={this.handleClick}>Submit</button>
+                <div className= "form-group" align="center">
+                    <button className= "btn btn-default btn-lg" onClick={this.handleClick}>Submit</button>
                 </div>
 
             </form>

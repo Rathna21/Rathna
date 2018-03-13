@@ -13,11 +13,13 @@ app.use(bodyParser.urlencoded({ extended : false }));
 app.use(cookieParser());
 app.use(session({secret : 'baadupai'}));
 
+let email = '';
 
 router.get('/signup',function(req,res,next){
     UserData.find({email : req.query.email , password : req.query.password}).then(function(userData){
         // req.session.email = userData[0].email;
         // console.log('sess is '+req.session.email);
+        email = req.query.email;
         res.send(userData);
     }).catch( function () {
         console.log('error');
@@ -27,7 +29,7 @@ router.get('/signup',function(req,res,next){
 
 router.get('/profile', function (req, res, next) {
 
-    UserData.find({email : req.query.email}).then(function (userData) {
+    UserData.find({email : email}).then(function (userData) {
        res.send(userData);
     });
 });

@@ -23,6 +23,10 @@ export default {
             {
                 test : /\.css$/,
                 loaders : ['style-loader' , 'css-loader']
+            },
+            {
+                test : /\.jpeg$/,
+                loaders : ['file-loader']
             }
         ]
     },

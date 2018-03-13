@@ -5,5 +5,23 @@ h1 {
 
 h2 {
     font-family: Arial;
-    color: grey;
+    color: lightpink;
 }
+
+.button {
+    text-align: center;
+    position: absolute;
+}
+
+.profile{
+font-size: xx-large;
+    color: crimson;
+}
+
+.prof{
+    text-align: center;
+}
+
+
+
+

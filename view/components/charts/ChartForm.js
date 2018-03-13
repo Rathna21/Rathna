@@ -38,7 +38,7 @@ export default class ChartForm  extends React.Component{
               arrData1.push(arr1[i].signalStrength);
             }
 
-            console.log(arrData1);
+       
 
             axios.post("http://localhost:3000/api/getChart", {
                 networkName : this.state.networkname2
@@ -54,7 +54,7 @@ export default class ChartForm  extends React.Component{
                     arrData2.push(arr2[i].signalStrength);
                 }
 
-                console.log(arrData2);
+
 
                 this.state.chartData = {
                     labels : (labels1.length > labels2.length ? labels1 : labels2),
@@ -85,7 +85,7 @@ export default class ChartForm  extends React.Component{
 
 
             <form>
-
+                 <div className="col-md-4 col-md-offset-4">
                 <div className= "form-group">
                     <label className= "control-label">Network Name 1</label>
                     <input value={this.state.networkname1} onChange={this.onChange }
@@ -105,6 +105,7 @@ export default class ChartForm  extends React.Component{
                 <div className= "form-group">
                     <button className= "btn btn-primary btn-lg" onClick={this.handleClick}>Submit</button>
                 </div>
+                 </div>
 
                     <Line data = {this.state.chartData} />
 
