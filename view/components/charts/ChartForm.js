@@ -38,7 +38,7 @@ export default class ChartForm  extends React.Component{
               arrData1.push(arr1[i].signalStrength);
             }
 
-       
+
 
             axios.post("http://localhost:3000/api/getChart", {
                 networkName : this.state.networkname2

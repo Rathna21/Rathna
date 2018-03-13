@@ -23,7 +23,22 @@ export default class ProfileForm extends React.Component {
 
                     <label className="control-label profile">Username  </label>
                     <input className="form-control prof" value={userData[index].username}/><br />
-                    <label className="control-label profile">   Email  </label>  <input className="form-control prof" value={userData[index].email}/>
+
+                    <label className="control-label profile">   Email  </label>
+                    <input className="form-control prof" value={userData[index].email}/><br/>
+
+                    <label className="control-label profile">   Phone Number  </label>
+                    <input className="form-control prof" value={userData[index].phonenumber}/><br/>
+
+                    <label className="control-label profile">   Address  </label>
+                    <input className="form-control prof" value={userData[index].address}/><br/>
+
+                    <label className="control-label profile">   City  </label>
+                    <input className="form-control prof" value={userData[index].city}/>
+
+                    <label className="control-label profile">   Pincode  </label>
+                    <input className="form-control prof" value={userData[index].pincode}/>
+
 
                 </div>
 
@@ -64,6 +79,11 @@ export default class ProfileForm extends React.Component {
             {
                 userObj["username"] = data.data[0].username;
                 userObj["email"] = data.data[0].email;
+                userObj["phonenumber"] = data.data[0].phonenumber;
+                userObj["address"] = data.data[0].address;
+                userObj["city"] = data.data[0].city;
+                userObj["pincode"] = data.data[0].pincode;
+
             }
             user.push(userObj);
             return user;

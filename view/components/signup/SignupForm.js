@@ -9,6 +9,10 @@ class SignupForm extends React.Component {
         this.state = {
             username: '',
             email : '',
+            phonenumber : '',
+            address: '',
+            city:'',
+            pincode:'',
             password : '',
             confirmpassword : ''
         }
@@ -26,25 +30,44 @@ class SignupForm extends React.Component {
         e.preventDefault();
 
         if(this.state.username == '')
-            alert('enter valid username');
+            alert('Enter valid username');
 
         else if (this.state.email == '' )
-            alert('enter email');
+            alert('Enter email');
 
         else if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)))
-            alert('enter valid email');
+            alert('Enter valid email');
+
+        else if (this.state.phonenumber == '' )
+            alert('Enter phone number');
+
+       else if (!(/[2-9]{2}\d{8}/.test(this.state.phonenumber)))
+           alert ('Enter valid phone number');
+
+        else if (this.state.address == '' )
+            alert('Enter address');
+
+        else if (this.state.city == '' )
+            alert('Enter city');
+
+        else if (this.state.pincode == '' )
+            alert('Enter pincode');
 
         else if (this.state.password == '' || this.state.confirmpassword == '')
-            alert('enter valid password');
+            alert('Enter valid password');
 
         else if (this.state.password != this.state.confirmpassword)
-            alert('password mismatch');
+            alert('Password mismatch');
 
         else {
 
             axios.post('http://localhost:3000/api/signup', {
                 username: this.state.username,
                 email : this.state.email,
+                phonenumber : this.state.phonenumber,
+                address : this.state.address,
+                city : this.state.city,
+                pincode : this.state.pincode,
                 password : this.state.password,
                 resetPasswordToken : '',
                 resetPasswordExpires : ''
@@ -83,6 +106,38 @@ class SignupForm extends React.Component {
                           className = "form-control" />
                </div>
 
+               <div className= "form-group">
+                   <label className= "control-label">Phone Number</label>
+                   <input value={this.state.phonenumber} onChange={this.onChange }
+                          type="text"
+                          name= "phonenumber"
+                          className = "form-control" />
+               </div>
+
+               <div className= "form-group">
+                   <label className= "control-label">Address</label>
+                   <input value={this.state.address} onChange={this.onChange }
+                          type="text"
+                          name= "address"
+                          className = "form-control" />
+               </div>
+
+               <div className= "form-group">
+                   <label className= "control-label">City</label>
+                   <input value={this.state.city} onChange={this.onChange }
+                          type="text"
+                          name= "city"
+                          className = "form-control" />
+               </div>
+
+               <div className= "form-group">
+                   <label className= "control-label">Pincode</label>
+                   <input value={this.state.pincode} onChange={this.onChange }
+                          type="text"
+                          name= "pincode"
+                          className = "form-control" />
+               </div>
+
 
                <div className= "form-group">
                    <label className= "control-label">Password</label>
@@ -99,6 +154,9 @@ class SignupForm extends React.Component {
                           name= "confirmpassword"
                           className = "form-control" />
                </div>
+
+
+
 
 
                <div className= "form-group">

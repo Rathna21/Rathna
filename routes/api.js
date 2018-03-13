@@ -17,8 +17,6 @@ let email = '';
 
 router.get('/signup',function(req,res,next){
     UserData.find({email : req.query.email , password : req.query.password}).then(function(userData){
-        // req.session.email = userData[0].email;
-        // console.log('sess is '+req.session.email);
         email = req.query.email;
         res.send(userData);
     }).catch( function () {
