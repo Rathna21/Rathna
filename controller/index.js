@@ -7,10 +7,8 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev';
 
 const bodyParser = require('body-parser');
-const session = require('express-session');
 
 const mongoose = require('mongoose');
-//import users from './routes/users';
 
 let app = express();
 
@@ -20,12 +18,7 @@ mongoose.Promise = global.Promise;
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
-//app.use('/api/users', users);
-
-
-
 app.use(bodyParser.json());
-app.use(session({secret:"fajfdafhafgsajfjf4r8u9ugewgnrnwsddfds", resave:false, saveUninitialized:true}));
 app.use(bodyParser.urlencoded({ extended : false }));
 
 const router = require('../routes/api');

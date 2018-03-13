@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
         {
             axios.get("http://localhost:3000/api/signup?email="+ this.state.email +"&password=" + this.state.password).then(response => {
                 if(response.data.length == 1)
-                    browserHistory.push('/home');
+                    browserHistory.push('/home?email='+ this.state.email);
                 else
                     alert('Invalid email or password');
             }).catch(err => {

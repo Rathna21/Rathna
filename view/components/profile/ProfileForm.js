@@ -60,7 +60,7 @@ export default class ProfileForm extends React.Component {
     handleClick(e){
         e.preventDefault();
 
-        axios.get('http://localhost:3000/api/profile?email='+'rathnasrinivas95@gmail.com').then(function (data) {
+        axios.get('http://localhost:3000/api/profile?email='+'').then(function (data) {
             let user = [];
             let userObj = {};
             for(let c = 0; c < data.data.length; c++)

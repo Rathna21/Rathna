@@ -2,43 +2,20 @@ import React from 'react';
 import axios from "axios/index";
 import {Line} from 'react-chartjs-2';
 var createReactClass = require('create-react-class');
+import {browserHistory} from 'react-router';
 
 
 
 
-    const data = {
-        labels: ['1', '2', '3', '4', '5', '6', '7'],
-        datasets: [
-            {
-                label: 'My First dataset',
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: 'rgba(75,192,192,0.4)',
-                borderColor: 'rgba(75,192,192,1)',
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJoinStyle: 'miter',
-                pointBorderColor: 'rgba(75,192,192,1)',
-                pointBackgroundColor: '#fff',
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                pointHoverBorderColor: 'rgba(220,220,220,1)',
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
-                data: [100, 80, 90, 81, 77, 67, 87]
-            }
-        ]
-    };
+
 
 export default class ChartForm  extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            networkname : '',
-
+            networkname1 : '',
+            networkname2 : '',
+            chartData   : {}
         }
         this.onChange =this.onChange.bind(this);
         this.handleClick =this.handleClick.bind(this);
@@ -48,10 +25,59 @@ export default class ChartForm  extends React.Component{
     }
     handleClick(e){
         e.preventDefault();
+        axios.post("http://localhost:3000/api/getChart",{
+            networkName : this.state.networkname1
+        }).then(response => {
+
+            const arr1 = response.data;
+            let arrData1 = [];
+            let labels1 = [];
+            for(let i=0; i<arr1.length; i++)
+            {
+              labels1.push(i+1);
+              arrData1.push(arr1[i].signalStrength);
+            }
+
+            console.log(arrData1);
+
+            axios.post("http://localhost:3000/api/getChart", {
+                networkName : this.state.networkname2
+            }).then(response => {
+
+
+                const arr2 = response.data;
+                let arrData2 = [];
+                let labels2 = [];
+                for(let i=0; i<arr2.length; i++)
+                {
+                    labels2.push(i+1);
+                    arrData2.push(arr2[i].signalStrength);
+                }
+
+                console.log(arrData2);
+
+                this.state.chartData = {
+                    labels : (labels1.length > labels2.length ? labels1 : labels2),
+                    datasets : [{
+                            label : this.state.networkname1,
+                            data  : arrData1
+                        },
+                        {
+                            label : this.state.networkname2,
+                            data  : arrData2
+                        }
+                    ]
+                }
+
+                browserHistory.push('/charts');
+
+            });
 
 
 
 
+
+        });
     }
 
     render() {
@@ -61,20 +87,28 @@ export default class ChartForm  extends React.Component{
             <form>
 
                 <div className= "form-group">
-                    <label className= "control-label">Network Name</label>
-                    <input value={this.state.networkname} onChange={this.onChange }
+                    <label className= "control-label">Network Name 1</label>
+                    <input value={this.state.networkname1} onChange={this.onChange }
                            type="text"
-                           name= "networkname"
+                           name= "networkname1"
                            className = "form-control"/>
                 </div>
 
-
+                <div className= "form-group">
+                    <label className= "control-label">Network Name 2</label>
+                    <input value={this.state.networkname2} onChange={this.onChange }
+                           type="text"
+                           name= "networkname2"
+                           className = "form-control"/>
+                </div>
 
                 <div className= "form-group">
                     <button className= "btn btn-primary btn-lg" onClick={this.handleClick}>Submit</button>
                 </div>
-                <h2>Line Example</h2>
-                <Line data={data}/>
+
+                    <Line data = {this.state.chartData} />
+
+
             </form>
         );
     }

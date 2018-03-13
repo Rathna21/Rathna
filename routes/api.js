@@ -1,16 +1,26 @@
 const express = require('express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const router = express.Router();
 const UserData = require('../model/userData');
 const NetworkData = require('../model/networkData');
-
-const async = require("async");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+let app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended : false }));
+app.use(cookieParser());
+app.use(session({secret : 'baadupai'}));
+
 
 router.get('/signup',function(req,res,next){
     UserData.find({email : req.query.email , password : req.query.password}).then(function(userData){
+        // req.session.email = userData[0].email;
+        // console.log('sess is '+req.session.email);
         res.send(userData);
+    }).catch( function () {
+        console.log('error');
     });
 
 });
@@ -22,10 +32,10 @@ router.get('/profile', function (req, res, next) {
     });
 });
 
-router.get('/register', function(req, res, next) {
-    NetworkData.find({networkName : req.query.networkName}).then(function (data) {
+router.post('/getChart', function(req, res, next) {
+    console.log(req.body.networkName);
+    NetworkData.find({networkName : req.body.networkName}).then(function (data) {
         res.send(data);
-
     });
 });
 
