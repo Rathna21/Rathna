@@ -19,17 +19,10 @@ export default class ProfileForm extends React.Component {
         userData = userData.map(function (data, index) {
 
             return(
+
                 <div align="center" className= "col-md-4 col-md-offset-4 ">
-                    <table>
-
-                        < tr >
-
-                            <td><label className="control-label profile">Username : &nbsp;</label></td>
-                            <td> <label className="control-label content">{userData[index].username}</label> </td>
-                        </tr>
-
-                    </table>
-
+                    <label className="control-label profile">Username : &nbsp;</label>
+                    <label className="control-label content">{userData[index].username}</label>
 
 
                     <label className="control-label profile"> Email : &nbsp;</label>

@@ -4,11 +4,6 @@ import {Line} from 'react-chartjs-2';
 var createReactClass = require('create-react-class');
 import {browserHistory} from 'react-router';
 
-
-
-
-
-
 export default class ChartForm  extends React.Component{
     constructor(props){
         super(props);
@@ -70,13 +65,7 @@ export default class ChartForm  extends React.Component{
                 }
 
                 browserHistory.push('/charts');
-
             });
-
-
-
-
-
         });
     }
 
@@ -108,7 +97,6 @@ export default class ChartForm  extends React.Component{
                  </div>
 
                     <Line data = {this.state.chartData} />
-
 
             </form>
         );
