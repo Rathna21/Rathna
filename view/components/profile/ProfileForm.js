@@ -25,7 +25,7 @@ export default class ProfileForm extends React.Component {
                     <label className="control-label content" >{userData[index].username}</label><br/>
 
 
-                    <label className="control-label profile"> Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
+                    <label className="control-label profile"> Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].email}</label> <br />
 
                     <label className="control-label profile">Phone Number : &nbsp;</label>
@@ -34,7 +34,7 @@ export default class ProfileForm extends React.Component {
                     <label className="control-label profile">Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].address}</label> <br />
 
-                    <label className="control-label profile">City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
+                    <label className="control-label profile">City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].city}</label> <br />
 
                     <label className="control-label profile">Pincode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>

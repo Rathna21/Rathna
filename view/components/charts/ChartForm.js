@@ -52,7 +52,7 @@ export default class ChartForm  extends React.Component{
 
 
                 this.state.chartData = {
-                    labels : (labels1.length > labels2.length ? labels1 : labels2),
+                    labels : labels1,
                     datasets : [{
                             label : this.state.networkname1,
                             data  : arrData1,
