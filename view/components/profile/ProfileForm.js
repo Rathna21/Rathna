@@ -20,24 +20,24 @@ export default class ProfileForm extends React.Component {
 
             return(
 
-                <div align="center" className= "col-md-4 col-md-offset-4 ">
-                    <label className="control-label profile">Username : &nbsp;</label>
-                    <label className="control-label content">{userData[index].username}</label>
+                <div  className= "col-md-4 col-md-offset-4  ">
+                    <label className="control-label profile">Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
+                    <label className="control-label content" >{userData[index].username}</label><br/>
 
 
-                    <label className="control-label profile"> Email : &nbsp;</label>
+                    <label className="control-label profile"> Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].email}</label> <br />
 
                     <label className="control-label profile">Phone Number : &nbsp;</label>
                     <label className="control-label content">{userData[index].phonenumber}</label> <br />
 
-                    <label className="control-label profile">Address : &nbsp;</label>
+                    <label className="control-label profile">Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].address}</label> <br />
 
-                    <label className="control-label profile">City : &nbsp;</label>
+                    <label className="control-label profile">City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].city}</label> <br />
 
-                    <label className="control-label profile">Pincode : &nbsp;</label>
+                    <label className="control-label profile">Pincode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content">{userData[index].pincode}</label> <br />
 
 

@@ -25,8 +25,8 @@ export default {
                 loaders : ['style-loader' , 'css-loader']
             },
             {
-                test : /\.jpeg$/,
-                loaders : ['file-loader']
+                test : /\.png$/,
+                loaders : ['file-loader', 'url-loader']
             }
         ]
     },

@@ -19,7 +19,6 @@ router.get('/signup',function(req,res,next){
 
 router.get('/profile', function (req, res, next) {
 
-    console.log(req.session.email);
     UserData.find({email : req.session.email}).then(function (userData) {
         res.send(userData);
     });
