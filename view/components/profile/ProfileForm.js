@@ -20,24 +20,32 @@ export default class ProfileForm extends React.Component {
 
             return(
                 <div align="center" className= "col-md-4 col-md-offset-4 ">
+                    <table>
 
-                    <label className="control-label profile">Username  </label>
-                    <input className="form-control prof" value={userData[index].username}/><br />
+                        < tr >
 
-                    <label className="control-label profile">   Email  </label>
-                    <input className="form-control prof" value={userData[index].email}/><br/>
+                            <td><label className="control-label profile">Username : &nbsp;</label></td>
+                            <td> <label className="control-label content">{userData[index].username}</label> </td>
+                        </tr>
 
-                    <label className="control-label profile">   Phone Number  </label>
-                    <input className="form-control prof" value={userData[index].phonenumber}/><br/>
+                    </table>
 
-                    <label className="control-label profile">   Address  </label>
-                    <input className="form-control prof" value={userData[index].address}/><br/>
 
-                    <label className="control-label profile">   City  </label>
-                    <input className="form-control prof" value={userData[index].city}/>
 
-                    <label className="control-label profile">   Pincode  </label>
-                    <input className="form-control prof" value={userData[index].pincode}/>
+                    <label className="control-label profile"> Email : &nbsp;</label>
+                    <label className="control-label content">{userData[index].email}</label> <br />
+
+                    <label className="control-label profile">Phone Number : &nbsp;</label>
+                    <label className="control-label content">{userData[index].phonenumber}</label> <br />
+
+                    <label className="control-label profile">Address : &nbsp;</label>
+                    <label className="control-label content">{userData[index].address}</label> <br />
+
+                    <label className="control-label profile">City : &nbsp;</label>
+                    <label className="control-label content">{userData[index].city}</label> <br />
+
+                    <label className="control-label profile">Pincode : &nbsp;</label>
+                    <label className="control-label content">{userData[index].pincode}</label> <br />
 
 
                 </div>
