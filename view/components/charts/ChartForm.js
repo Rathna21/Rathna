@@ -55,11 +55,13 @@ export default class ChartForm  extends React.Component{
                     labels : (labels1.length > labels2.length ? labels1 : labels2),
                     datasets : [{
                             label : this.state.networkname1,
-                            data  : arrData1
+                            data  : arrData1,
+                        borderColor: 'rgba(219, 20, 21, 1)'
                         },
                         {
                             label : this.state.networkname2,
-                            data  : arrData2
+                            data  : arrData2,
+                            borderColor: 'rgba(72, 25, 204, 1)'
                         }
                     ]
                 }
