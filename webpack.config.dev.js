@@ -1,16 +1,19 @@
 import path from 'path';
 
-
-
 export default {
+
     devtool : 'eval-source-map',
     entry : [
+
         path.join(__dirname , '/view/index.js')
+
         ],
     output : {
+
         path : __dirname,
         filename : 'bundle.js',
         publicPath : '/'
+
     },
 
     module : {
@@ -30,6 +33,7 @@ export default {
             }
         ]
     },
+
     resolve : {
         extensions : ['.js']
     }

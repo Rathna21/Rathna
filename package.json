@@ -1,12 +1,16 @@
 {
+
   "name": "rathna",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+
     "start": " nodemon --watch controller --exec babel-node -- controller/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
+
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -49,5 +53,7 @@
     "webpack": "^3.11.0",
     "webpack-dev-middleware": "^2.0.4",
     "webpack-hot-middleware": "^2.21.0"
+
   }
+
 }

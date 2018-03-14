@@ -5,10 +5,12 @@ import axios from 'axios';
 export default class ProfileForm extends React.Component {
 
     constructor(props){
+
         super(props);
         this.state = {
             userData : []
         }
+
         this.handleClick =this.handleClick.bind(this);
     }
 
@@ -16,11 +18,13 @@ export default class ProfileForm extends React.Component {
 
         let userData = this.state.userData;
 
+        /* maps userdata from database and display on the UI */
         userData = userData.map(function (data, index) {
 
             return(
 
                 <div  className= "col-md-4 col-md-offset-4  ">
+
                     <label className="control-label profile">Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;</label>
                     <label className="control-label content" >{userData[index].username}</label><br/>
 
@@ -44,6 +48,7 @@ export default class ProfileForm extends React.Component {
                 </div>
 
             );
+
         });
 
         return (
@@ -65,19 +70,21 @@ export default class ProfileForm extends React.Component {
 
         </div>
 
-
-
         );
+
     }
 
     handleClick(e){
         e.preventDefault();
 
+        /* get request for calling profile method */
         axios.get('http://localhost:3000/api/profile?email='+'').then(function (data) {
+
             let user = [];
             let userObj = {};
             for(let c = 0; c < data.data.length; c++)
             {
+
                 userObj["username"] = data.data[0].username;
                 userObj["email"] = data.data[0].email;
                 userObj["phonenumber"] = data.data[0].phonenumber;
@@ -86,13 +93,18 @@ export default class ProfileForm extends React.Component {
                 userObj["pincode"] = data.data[0].pincode;
 
             }
+
             user.push(userObj);
             return user;
         }).then( json => {
+
             this.setState({
                 userData : json
             });
+
         });
+
     }
+
 };
 

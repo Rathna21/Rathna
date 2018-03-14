@@ -1,10 +1,10 @@
 import React from 'react';
-import Navigation from './Navigation';
 import common from '../../common.css';
 
+export default class App extends React.Component  {
 
- export default class App extends React.Component  {
     render(){
+
         return (
 
             <div>
@@ -16,8 +16,11 @@ import common from '../../common.css';
                 {this.props.children}
 
             </div>
+
             </div>
+
         );
+
     }
 
 }

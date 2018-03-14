@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route , IndexRoute } from 'react-router';
-
 import App from './components/App';
 import Greetings from "./components/Greetings";
 import SignupPage from "./components/signup/SignupPage";
@@ -15,7 +14,10 @@ import ResetPage from "./components/resetpassword/ResetPage";
 
 
 export default (
+
     <Route path ='/' component= {App}>
+
+           /* routes each directory to corresponding component */
         <IndexRoute component = {Greetings} />
         <Route path= 'signup' component={SignupPage}/>
         <Route path = 'login' component={LoginPage}/>
@@ -24,6 +26,7 @@ export default (
         <Route path = 'profile' component = {ProfilePage}/>
         <Route path = 'forgotpassword' component = {ForgotPage}/>
         <Route path = 'resetpassword' component = {ResetPage}/>
+
     </Route>
 
 )
